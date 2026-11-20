@@ -1,0 +1,17 @@
+{
+  "name": "kiwi-web",
+  "version": "2.1.0",
+  "description": "KiwiPlay Web & Android Video Player Landing Page",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "kiwiplay",
+    "video-player",
+    "android",
+    "streaming"
+  ],
+  "author": "MergeTempMail",
+  "license": "ISC"
+}
