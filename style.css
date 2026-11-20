@@ -2159,3 +2159,118 @@ body.has-sticky-ad {
         display: none;
     }
 }
+
+/* --- Additional Mega Banner Units & Placements --- */
+.ad-skyscraper {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 120px;
+    z-index: 999;
+    display: none;
+    text-align: center;
+    background: var(--bg-light-dark);
+    padding: 8px 4px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-main);
+}
+
+.ad-skyscraper-left {
+    left: 8px;
+}
+
+.ad-skyscraper-right {
+    right: 8px;
+}
+
+.ad-label-vertical {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+@media (min-width: 1480px) {
+    .ad-skyscraper {
+        display: block;
+    }
+}
+
+.ad-top-alert-bar {
+    background: #0f172a;
+    color: #ffffff;
+    padding: 6px 16px;
+    border-bottom: 1px solid rgba(101, 163, 13, 0.25);
+    font-size: 0.85rem;
+    text-align: center;
+    position: relative;
+    z-index: 10001;
+}
+
+.ad-top-alert-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.ad-pill {
+    background: var(--primary);
+    color: #ffffff;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.72rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.ad-hero-inline-slot {
+    margin-top: 24px;
+    max-width: 520px;
+}
+
+.ad-feature-card {
+    border: 1.5px dashed var(--primary);
+    background: rgba(101, 163, 13, 0.05);
+}
+
+.ad-step-card {
+    border: 1.5px dashed var(--primary);
+    background: rgba(101, 163, 13, 0.04);
+}
+
+.ad-badge-icon {
+    background: var(--primary) !important;
+    color: #fff !important;
+}
+
+.ad-seo-card {
+    border: 1.5px dashed var(--primary);
+    background: rgba(101, 163, 13, 0.04);
+}
+
+.ad-faq-item {
+    border-left: 3px solid var(--primary);
+}
+
+.ad-mega-footer-banner {
+    margin: 45px auto 25px auto;
+}
+
+.footer-ad-bar {
+    max-width: 800px;
+    margin: 24px auto 10px auto;
+    text-align: center;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
