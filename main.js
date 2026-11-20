@@ -9,6 +9,7 @@
 const UPDATE_CONFIG = {
     enabled: true,                         // Set to false to disable update notification
     showAlwaysOnOpen: true,                // If true, shows notification every time user opens the site
+    autoCloseAfterMs: 2000,                // Auto close notification after 2 seconds
     version: 'v2.1.0',                     // Current latest APK version
     releaseDate: '26 October 2026',        // Today's release date
     useDynamicTodayDate: false,            // Set to true if you want it to always show the user's current date
@@ -349,7 +350,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        const openModal = () => {
+        let autoCloseTimer;
+
+        const openModal = (autoDismiss = false) => {
             if (modalBackdrop) {
                 modalBackdrop.classList.add('show');
                 modalBackdrop.setAttribute('aria-hidden', 'false');
@@ -358,9 +361,16 @@ document.addEventListener('DOMContentLoaded', () => {
             if (floatingPill) {
                 floatingPill.classList.remove('show');
             }
+            if (autoDismiss && UPDATE_CONFIG.autoCloseAfterMs > 0) {
+                clearTimeout(autoCloseTimer);
+                autoCloseTimer = setTimeout(() => {
+                    closeModal();
+                }, UPDATE_CONFIG.autoCloseAfterMs);
+            }
         };
 
         const closeModal = () => {
+            clearTimeout(autoCloseTimer);
             if (modalBackdrop) {
                 modalBackdrop.classList.remove('show');
                 modalBackdrop.setAttribute('aria-hidden', 'true');
@@ -372,10 +382,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        // Trigger open notification whenever user opens the site
+        // Trigger open notification whenever user opens the site (auto-closes after 2 seconds)
         if (UPDATE_CONFIG.showAlwaysOnOpen) {
-            // Small smooth delay of 450ms for page to settle first
-            setTimeout(openModal, 450);
+            // Small smooth delay of 450ms for page to settle first, then shows for 2 seconds
+            setTimeout(() => openModal(true), 450);
         }
 
         // Close button click
