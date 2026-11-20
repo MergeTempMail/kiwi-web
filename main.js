@@ -27,7 +27,7 @@ const UPDATE_CONFIG = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // --- Mobile Menu Toggle ---
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (targetData) {
                 // Fade out current screen
                 simScreenImg.style.opacity = 0;
-                
+
                 setTimeout(() => {
                     // Update image and caption
                     simScreenImg.src = targetData.img;
@@ -140,10 +140,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateHeroScreen = (index) => {
         currentHeroIndex = index;
-        
+
         // Premium fade-out
         heroScreenImg.style.opacity = 0;
-        
+
         setTimeout(() => {
             const screenSrc = heroScreens[currentHeroIndex];
             heroScreenImg.src = screenSrc;
@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const handleSwipeGesture = () => {
             const swipeThreshold = 50; // Minimum swipe distance in px
             const diffX = touchEndX - touchStartX;
-            
+
             if (Math.abs(diffX) > swipeThreshold) {
                 if (diffX < 0) {
                     // Swiped Left -> Next
