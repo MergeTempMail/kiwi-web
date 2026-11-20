@@ -352,7 +352,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let autoCloseTimer;
 
-        const openModal = (autoDismiss = false) => {
+        const openModal = () => {
             if (modalBackdrop) {
                 modalBackdrop.classList.add('show');
                 modalBackdrop.setAttribute('aria-hidden', 'false');
@@ -361,12 +361,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (floatingPill) {
                 floatingPill.classList.remove('show');
             }
-            if (autoDismiss && UPDATE_CONFIG.autoCloseAfterMs > 0) {
-                clearTimeout(autoCloseTimer);
-                autoCloseTimer = setTimeout(() => {
-                    closeModal();
-                }, UPDATE_CONFIG.autoCloseAfterMs);
-            }
+
+            // Auto close notification after exactly 2 seconds (2000ms)
+            clearTimeout(autoCloseTimer);
+            autoCloseTimer = setTimeout(() => {
+                closeModal();
+            }, 2000);
         };
 
         const closeModal = () => {
@@ -376,16 +376,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 modalBackdrop.setAttribute('aria-hidden', 'true');
                 document.body.classList.remove('modal-open');
             }
-            // Always show the floating reopen pill once dismissed
+            // Ensure no lingering pill remains on screen
             if (floatingPill) {
-                floatingPill.classList.add('show');
+                floatingPill.classList.remove('show');
             }
         };
 
-        // Trigger open notification whenever user opens the site (auto-closes after 2 seconds)
-        if (UPDATE_CONFIG.showAlwaysOnOpen) {
-            // Small smooth delay of 450ms for page to settle first, then shows for 2 seconds
-            setTimeout(() => openModal(true), 450);
+        // Trigger open notification on page load (shows for 2 seconds then completely disappears)
+        if (UPDATE_CONFIG.enabled && UPDATE_CONFIG.showAlwaysOnOpen) {
+            setTimeout(openModal, 300);
         }
 
         // Close button click
