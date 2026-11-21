@@ -2310,3 +2310,49 @@ body.has-sticky-ad {
     border: 1px dashed var(--border-color);
 }
 
+/* --- SEO Keywords Cloud Styling --- */
+.seo-keywords-box {
+    margin-top: 32px;
+    padding: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: var(--shadow-main);
+}
+
+.seo-keywords-box h4 {
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-weight: 700;
+}
+
+.keyword-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.kw-tag {
+    background: rgba(101, 163, 13, 0.08);
+    color: var(--text-main);
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border: 1px solid rgba(101, 163, 13, 0.2);
+    display: inline-block;
+    transition: var(--transition-fast);
+}
+
+.kw-tag:hover {
+    background: rgba(101, 163, 13, 0.16);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
