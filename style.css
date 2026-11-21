@@ -59,16 +59,14 @@ html {
     scroll-behavior: smooth;
     font-size: 16px;
     background-color: var(--bg-dark);
-    overflow-x: hidden;
-    width: 100%;
+    min-width: 1200px;
 }
 
 body {
     font-family: var(--font-body);
     color: var(--text-main);
     line-height: 1.6;
-    overflow-x: hidden;
-    width: 100%;
+    min-width: 1200px;
     background-color: var(--bg-dark);
 }
 

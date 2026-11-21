@@ -9,18 +9,17 @@
 const UPDATE_CONFIG = {
     enabled: true,                         // Set to false to disable update notification
     showAlwaysOnOpen: true,                // If true, shows notification every time user opens the site
-    autoCloseAfterMs: 2000,                // Auto close notification after 2 seconds
     version: 'v2.1.0',                     // Current latest APK version
-    releaseDate: '26 October 2026',        // Today's release date
+    releaseDate: '22 November 2026',        // Today's release date
     useDynamicTodayDate: false,            // Set to true if you want it to always show the user's current date
-    title: 'App Update Available!',
+    title: '22 Nov Update Available!',
     apkUrl: 'assets/KiwiPlay.apk',         // Path to your APK file
     apkFileName: 'KiwiPlay.apk',           // Download file name
     fileSize: '23.4 MB',                   // APK file size
-    badgeText: 'New Update Available',
-    description: 'A new version of KiwiPlay APK has been released today with enhanced 4K video playback, stability improvements, and bug fixes.',
+    badgeText: '22 Nov Update',
+    description: 'A new 22 Nov Update of KiwiPlay APK has been released today with enhanced 4K video playback, stability improvements, and bug fixes.',
     highlights: [
-        'New build released on 26 October 2026 with performance improvements',
+        '22 Nov Update: Released on 22 November 2026 with performance improvements',
         'Enhanced hardware-accelerated 4K/1080p video player engine',
         '100% verified, clean & safe direct APK installer'
     ]
@@ -350,8 +349,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        let autoCloseTimer;
-
         const openModal = () => {
             if (modalBackdrop) {
                 modalBackdrop.classList.add('show');
@@ -361,16 +358,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (floatingPill) {
                 floatingPill.classList.remove('show');
             }
-
-            // Auto close notification after exactly 2 seconds (2000ms)
-            clearTimeout(autoCloseTimer);
-            autoCloseTimer = setTimeout(() => {
-                closeModal();
-            }, 2000);
         };
 
         const closeModal = () => {
-            clearTimeout(autoCloseTimer);
             if (modalBackdrop) {
                 modalBackdrop.classList.remove('show');
                 modalBackdrop.setAttribute('aria-hidden', 'true');
@@ -382,7 +372,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        // Trigger open notification on page load (shows for 2 seconds then completely disappears)
+        // Trigger open notification on page load (stays until user explicitly clicks the cross button)
         if (UPDATE_CONFIG.enabled && UPDATE_CONFIG.showAlwaysOnOpen) {
             setTimeout(openModal, 300);
         }
@@ -434,18 +424,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize update notification
     initUpdateNotification();
-
-    // --- Sticky Ad Close Handler ---
-    const stickyCloseBtn = document.getElementById('ad-sticky-close-btn');
-    const stickyBottomAd = document.getElementById('sticky-bottom-ad');
-    if (stickyBottomAd) {
-        document.body.classList.add('has-sticky-ad');
-    }
-    if (stickyCloseBtn && stickyBottomAd) {
-        stickyCloseBtn.addEventListener('click', () => {
-            stickyBottomAd.style.display = 'none';
-            document.body.classList.remove('has-sticky-ad');
-        });
-    }
 
 });
