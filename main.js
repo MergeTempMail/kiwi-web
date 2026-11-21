@@ -425,4 +425,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize update notification
     initUpdateNotification();
 
+    // --- Sticky Banner Bar Close Handler ---
+    const stickyClose = document.getElementById('sticky-banner-close-btn');
+    const stickyBar = document.getElementById('sticky-banner-bar');
+    if (stickyClose && stickyBar) {
+        stickyClose.addEventListener('click', () => {
+            stickyBar.style.display = 'none';
+        });
+    }
+
 });
